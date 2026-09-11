@@ -40,7 +40,7 @@ function createCV(outputPath) {
 		doc.moveDown(0.3);
 
 		doc.fontSize(9).font("Helvetica").fillColor(textColor).text(
-			"Email: resham4533@gmail.com  •  Location: Nepal (Open to Remote / Hybrid)  •  GitHub: github.com/Resham-01  •  LinkedIn: linkedin.com/in/resham-kumar-thapa-b747a7268"
+			"Email: reshamkumar4533@gmail.com  •  Location: Nepal (Open to Remote / Hybrid)  •  GitHub: github.com/Resham-01  •  LinkedIn: linkedin.com/in/resham-kumar-thapa-b747a7268"
 		);
 		doc.moveDown(0.6);
 

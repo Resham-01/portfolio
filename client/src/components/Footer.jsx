@@ -47,7 +47,7 @@ export function Footer() {
 							<a href="https://x.com/resham_kumar_01" target="_blank" rel="noreferrer" title="X (Twitter)" className="footer-icon-link">
 								<XIcon size={16} />
 							</a>
-							<a href="mailto:resham4533@gmail.com" title="Email (resham4533@gmail.com)" className="footer-icon-link">
+							<a href="mailto:reshamkumar4533@gmail.com" title="Email (reshamkumar4533@gmail.com)" className="footer-icon-link">
 								<Mail size={18} />
 							</a>
 						</div>

@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
 			emailSent: isSent,
 			reason: emailResult.reason || null,
 			message: isSent
-				? "Thank you! Your message has been sent directly to Resham's email (resham4533@gmail.com)."
+				? "Thank you! Your message has been sent directly to Resham's email (reshamkumar4533@gmail.com)."
 				: "Thank you! Your message has been recorded. (Note: Email dispatch pending configuration)."
 		});
 	} catch (err) {

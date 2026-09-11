@@ -32,7 +32,7 @@ export function Contact() {
 			if (res.data && res.data.emailSent) {
 				setStatus({
 					type: "success",
-					message: "Thank you! Your message has been sent directly to resham4533@gmail.com. I'll get back to you soon."
+					message: "Thank you! Your message has been sent directly to reshamkumar4533@gmail.com. I'll get back to you soon."
 				});
 			} else {
 				setStatus({
@@ -44,7 +44,7 @@ export function Contact() {
 		} catch (err) {
 			const errorMsg =
 				err.response?.data?.message ||
-				"Could not send message automatically. Please email directly at resham4533@gmail.com";
+				"Could not send message automatically. Please email directly at reshamkumar4533@gmail.com";
 			setStatus({
 				type: "error",
 				message: errorMsg
@@ -87,13 +87,13 @@ export function Contact() {
 						</div>
 
 						<div className="contact-channels-list">
-							<a href="mailto:resham4533@gmail.com" className="contact-channel-item">
+							<a href="mailto:reshamkumar4533@gmail.com" className="contact-channel-item">
 								<div className="channel-icon-wrap bg-blue-subtle">
 									<Mail size={18} className="text-blue" />
 								</div>
 								<div>
 									<span className="channel-label">Email Me</span>
-									<span className="channel-value">resham4533@gmail.com</span>
+									<span className="channel-value">reshamkumar4533@gmail.com</span>
 								</div>
 							</a>
 

@@ -8,7 +8,7 @@ Designed for seamless deployment with **GitHub** and **Vercel** with full-stack 
 
 ## 🌟 Key Features
 
-- ⚡ **Dynamic Direct Messaging & Nodemailer**: Direct messages submitted via the portfolio form are recorded in MongoDB Atlas and immediately emailed to `resham4533@gmail.com`.
+- ⚡ **Dynamic Direct Messaging & Nodemailer**: Direct messages submitted via the portfolio form are recorded in MongoDB Atlas and immediately emailed to `reshamkumar4533@gmail.com`.
 - 🎨 **Modern Aesthetics & Responsive Design**: Smooth gradients, glassmorphism, glowing accents, and dark/bright theme switching.
 - 🧊 **3D Interactive Canvas**: Interactive Three.js 3D developer desk with OrbitControls and floating badges.
 - 📱 **Full Cross-Device Responsiveness**: Tailored layouts for desktop, tablet, and mobile displays.
@@ -78,8 +78,8 @@ git push -u origin main
 | Key | Value | Description |
 |---|---|---|
 | `MONGO_URI` | `mongodb+srv://...` | Your MongoDB Atlas connection string |
-| `RECEIVER_EMAIL` | `resham4533@gmail.com` | Where contact messages are delivered |
-| `EMAIL_USER` | `resham4533@gmail.com` | Your Gmail address used to send emails |
+| `RECEIVER_EMAIL` | `reshamkumar4533@gmail.com` | Where contact messages are delivered |
+| `EMAIL_USER` | `reshamkumar4533@gmail.com` | Your Gmail address used to send emails |
 | `EMAIL_PASS` | `your_16_char_app_password` | Your 16-character Google App Password |
 
 6. Click **Deploy**.

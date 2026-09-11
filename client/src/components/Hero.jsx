@@ -139,7 +139,7 @@ export function Hero({ theme }) {
 						<a href="https://x.com/resham_kumar_01" target="_blank" rel="noreferrer" className="social-icon-btn" title="X / Twitter (@resham_kumar_01)">
 							<XIcon size={16} />
 						</a>
-						<a href="mailto:resham4533@gmail.com" className="social-icon-btn" title="Email Resham (resham4533@gmail.com)">
+						<a href="mailto:reshamkumar4533@gmail.com" className="social-icon-btn" title="Email Resham (reshamkumar4533@gmail.com)">
 							<Mail size={18} />
 						</a>
 					</div>
