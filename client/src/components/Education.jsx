@@ -9,6 +9,7 @@ import {
 	Target,
 	Award
 } from "lucide-react";
+import { TiltCard } from "./TiltCard.jsx";
 
 export function Education() {
 	const roadmapItems = [
@@ -17,6 +18,7 @@ export function Education() {
 			type: "Formal Education",
 			institution: "University Program",
 			icon: <GraduationCap size={22} className="text-indigo" />,
+			glowClass: "indigo",
 			status: "In Progress",
 			description:
 				"Rigorous curriculum covering Data Structures & Algorithms, Database Management Systems (DBMS), Object-Oriented Programming, Computer Networks, and Software Engineering.",
@@ -31,6 +33,7 @@ export function Education() {
 			type: "Technical Specialization",
 			institution: "Self-Driven Mastery & Projects",
 			icon: <Brain size={22} className="text-purple" />,
+			glowClass: "purple",
 			status: "Active Focus",
 			description:
 				"Deep-diving into concurrency, multi-threading, Spring principles, microservice architecture, message queues, and low-latency system design.",
@@ -45,6 +48,7 @@ export function Education() {
 			type: "Domain Interest",
 			institution: "Security Standards & Labs",
 			icon: <ShieldCheck size={22} className="text-amber" />,
+			glowClass: "amber",
 			status: "Continuous Exploration",
 			description:
 				"Studying token authentication vulnerabilities, OWASP Top 10 mitigation, encryption at rest and in transit, and database sanitization.",
@@ -73,30 +77,39 @@ export function Education() {
 					</p>
 				</div>
 
-				{/* Timeline / Cards */}
+				{/* 3D Timeline Grid */}
 				<div className="education-timeline-grid">
 					{roadmapItems.map((item, idx) => (
-						<div key={idx} className="education-card">
-							<div className="education-card-top">
-								<div className="edu-icon-badge">{item.icon}</div>
-								<div className="edu-status-pill">{item.status}</div>
-							</div>
-							<div className="edu-type-label">{item.type}</div>
-							<h3 className="edu-title">{item.title}</h3>
-							<div className="edu-institution">
-								<BookOpen size={14} />
-								<span>{item.institution}</span>
-							</div>
-							<p className="edu-desc">{item.description}</p>
-							<div className="edu-highlights">
-								{item.highlights.map((hl, hIdx) => (
-									<div key={hIdx} className="edu-hl-item">
-										<Target size={13} className="text-cyan" />
-										<span>{hl}</span>
+						<TiltCard
+							key={idx}
+							className="education-card-tilt"
+							maxTilt={8}
+							scale={1.02}
+						>
+							<div className={`education-card border-glow-${item.glowClass}`}>
+								<div className="education-card-top">
+									<div className={`edu-icon-badge bg-${item.glowClass}-subtle`}>
+										{item.icon}
 									</div>
-								))}
+									<div className="edu-status-pill">{item.status}</div>
+								</div>
+								<div className="edu-type-label">{item.type}</div>
+								<h3 className="edu-title">{item.title}</h3>
+								<div className="edu-institution">
+									<BookOpen size={14} />
+									<span>{item.institution}</span>
+								</div>
+								<p className="edu-desc">{item.description}</p>
+								<div className="edu-highlights">
+									{item.highlights.map((hl, hIdx) => (
+										<div key={hIdx} className="edu-hl-item">
+											<Target size={13} className="text-cyan" />
+											<span>{hl}</span>
+										</div>
+									))}
+								</div>
 							</div>
-						</div>
+						</TiltCard>
 					))}
 				</div>
 			</div>

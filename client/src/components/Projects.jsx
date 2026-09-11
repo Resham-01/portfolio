@@ -13,12 +13,17 @@ import {
 	ChevronRight,
 	Calendar,
 	ArrowRight,
-	FileText
+	FileText,
+	Code2,
+	Compass,
+	Zap
 } from "lucide-react";
 import { GithubIcon } from "./Icons.jsx";
+import { TiltCard } from "./TiltCard.jsx";
 
 export function Projects() {
 	const [activeProjectModal, setActiveProjectModal] = useState(null);
+	const [activeFilter, setActiveFilter] = useState("all");
 
 	const projects = [
 		{
@@ -28,7 +33,7 @@ export function Projects() {
 			tagline: "Multi-tenant MERN-based digital fee collection & accounting infrastructure",
 			icon: "💰",
 			badge: "Featured MERN FinTech",
-			category: "Web & Financial Software",
+			category: "web",
 			description:
 				"A comprehensive multi-tenant MERN-based fee management platform engineered to simplify school fee collection, invoice automation, parent payment portals, and administrative bookkeeping.",
 			techStack: [
@@ -71,7 +76,7 @@ export function Projects() {
 			tagline: "Cross-platform mobile event discovery, ticketing & live QR entry ecosystem",
 			icon: "🎫",
 			badge: "Featured Mobile App",
-			category: "Mobile Application",
+			category: "mobile",
 			description:
 				"A complete cross-platform event management application with authentication, event management, digital tickets, QR-based joining/scanning, waitlists, promo codes, maps, and multilingual support.",
 			techStack: [
@@ -108,6 +113,10 @@ export function Projects() {
 		}
 	];
 
+	const filteredProjects = activeFilter === "all"
+		? projects
+		: projects.filter(p => p.category === activeFilter);
+
 	return (
 		<section className="section projects-section" id="projects">
 			<div className="container">
@@ -123,75 +132,107 @@ export function Projects() {
 					<p className="section-subtitle">
 						Real-world applications built with modern architectural patterns, robust security, and seamless user experiences.
 					</p>
+
+					{/* Category Filter Tabs */}
+					<div className="projects-filter-bar">
+						<button
+							className={`filter-tab-btn ${activeFilter === "all" ? "active" : ""}`}
+							onClick={() => setActiveFilter("all")}
+						>
+							<Zap size={14} />
+							<span>All Projects ({projects.length})</span>
+						</button>
+						<button
+							className={`filter-tab-btn ${activeFilter === "web" ? "active" : ""}`}
+							onClick={() => setActiveFilter("web")}
+						>
+							<Layers size={14} />
+							<span>Full-Stack Web</span>
+						</button>
+						<button
+							className={`filter-tab-btn ${activeFilter === "mobile" ? "active" : ""}`}
+							onClick={() => setActiveFilter("mobile")}
+						>
+							<Smartphone size={14} />
+							<span>Flutter Mobile</span>
+						</button>
+					</div>
 				</div>
 
 				{/* Projects Grid */}
 				<div className="projects-showcase-grid">
-					{projects.map((project, index) => (
-						<article key={project.id} className="project-feature-card">
-							{/* Card Top Banner */}
-							<div className="project-card-header">
-								<div className="project-header-left">
-									<div className="project-icon-badge">{project.icon}</div>
-									<div>
-										<span className="project-category-tag">{project.badge}</span>
-										<h3 className="project-title">{project.title}</h3>
-									</div>
-								</div>
-								<span className="project-number">0{index + 1}</span>
-							</div>
-
-							{/* Subtitle & Tagline */}
-							<div className="project-subtitle-box">
-								<p className="project-subtitle">{project.subtitle}</p>
-								<p className="project-description">{project.description}</p>
-							</div>
-
-							{/* Key Architecture Highlights */}
-							<div className="project-highlights-grid">
-								{project.highlights.slice(0, 3).map((hl, hIdx) => (
-									<div key={hIdx} className="highlight-pill">
-										<CheckCircle2 size={16} className="highlight-check" />
-										<div className="highlight-body">
-											<strong>{hl.title}: </strong>
-											<span>{hl.desc}</span>
+					{filteredProjects.map((project, index) => (
+						<TiltCard
+							key={project.id}
+							className="project-tilt-container"
+							maxTilt={8}
+							scale={1.02}
+						>
+							<article className="project-feature-card">
+								{/* Card Top Banner */}
+								<div className="project-card-header">
+									<div className="project-header-left">
+										<div className="project-icon-badge">{project.icon}</div>
+										<div>
+											<span className="project-category-tag">{project.badge}</span>
+											<h3 className="project-title">{project.title}</h3>
 										</div>
 									</div>
-								))}
-							</div>
+									<span className="project-number">0{index + 1}</span>
+								</div>
 
-							{/* Tech Stack Chips */}
-							<div className="project-tech-wrapper">
-								<span className="tech-label">Tech Stack:</span>
-								<div className="tech-chips-list">
-									{project.techStack.map((tech) => (
-										<span key={tech} className="tech-pill">
-											{tech}
-										</span>
+								{/* Subtitle & Tagline */}
+								<div className="project-subtitle-box">
+									<p className="project-subtitle">{project.subtitle}</p>
+									<p className="project-description">{project.description}</p>
+								</div>
+
+								{/* Key Architecture Highlights */}
+								<div className="project-highlights-grid">
+									{project.highlights.slice(0, 3).map((hl, hIdx) => (
+										<div key={hIdx} className="highlight-pill">
+											<CheckCircle2 size={16} className="highlight-check" />
+											<div className="highlight-body">
+												<strong>{hl.title}: </strong>
+												<span>{hl.desc}</span>
+											</div>
+										</div>
 									))}
 								</div>
-							</div>
 
-							{/* Card Actions */}
-							<div className="project-card-actions">
-								<button
-									className="btn btn-primary btn-sm"
-									onClick={() => setActiveProjectModal(project)}
-								>
-									<span>View Full Architecture</span>
-									<ChevronRight size={16} />
-								</button>
-								<a
-									href="https://github.com/Resham-01"
-									target="_blank"
-									rel="noreferrer"
-									className="btn btn-outline btn-sm"
-								>
-									<GithubIcon size={15} />
-									<span>Source Code</span>
-								</a>
-							</div>
-						</article>
+								{/* Tech Stack Chips */}
+								<div className="project-tech-wrapper">
+									<span className="tech-label">Tech Stack:</span>
+									<div className="tech-chips-list">
+										{project.techStack.map((tech) => (
+											<span key={tech} className="tech-pill">
+												{tech}
+											</span>
+										))}
+									</div>
+								</div>
+
+								{/* Card Actions */}
+								<div className="project-card-actions">
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={() => setActiveProjectModal(project)}
+									>
+										<span>View Full Architecture</span>
+										<ChevronRight size={16} />
+									</button>
+									<a
+										href="https://github.com/Resham-01"
+										target="_blank"
+										rel="noreferrer"
+										className="btn btn-outline btn-sm"
+									>
+										<GithubIcon size={15} />
+										<span>Source Code</span>
+									</a>
+								</div>
+							</article>
+						</TiltCard>
 					))}
 				</div>
 

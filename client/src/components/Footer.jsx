@@ -1,6 +1,7 @@
 import { ArrowUp, Heart, Mail, Code } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "./Icons.jsx";
 import profilePhoto from "../assets/profile.jpg";
+import { TiltCard } from "./TiltCard.jsx";
 
 export function Footer() {
 	const scrollToTop = () => {
@@ -12,13 +13,15 @@ export function Footer() {
 			<div className="container footer-inner">
 				<div className="footer-top-row">
 					<div className="footer-brand-col">
-						<div className="footer-brand">
-							<img src={profilePhoto} alt="Resham Kumar Thapa" className="footer-avatar" />
-							<div>
-								<span className="footer-name">Resham Kumar Thapa</span>
-								<span className="footer-role">Full-Stack & Flutter Developer</span>
+						<TiltCard className="footer-brand-tilt" maxTilt={8} scale={1.02}>
+							<div className="footer-brand">
+								<img src={profilePhoto} alt="Resham Kumar Thapa" className="footer-avatar" />
+								<div>
+									<span className="footer-name">Resham Kumar Thapa</span>
+									<span className="footer-role">Full-Stack & Flutter Developer</span>
+								</div>
 							</div>
-						</div>
+						</TiltCard>
 						<p className="footer-tagline">
 							Building modern, scalable web and mobile applications with MERN Stack, Flutter, and Java.
 						</p>
