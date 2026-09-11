@@ -1,0 +1,25 @@
+{
+  "name": "resham-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:all": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "morgan": "^1.10.1",
+    "nodemailer": "^10.0.3",
+    "pdfkit": "^0.20.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
